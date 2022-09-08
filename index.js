@@ -6,6 +6,9 @@ app.use(express.static('public'))
 app.set('view engine', 'hbs')
 hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 
+require('dotenv').config();
+
+const port = process.env.PORT;
 
 
 app.get('/', (req, res) => {
@@ -29,4 +32,4 @@ app.get('/elements', (req, res) => {
     })
 })
 
-app.listen(3000)
+app.listen(port)
